@@ -26,6 +26,12 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
+        <!-- Swagger API -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+
         <!-- Eureka Client — enables lb:// routing -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
