@@ -262,7 +262,8 @@ mashia-mesh/
 
 ---
 
-*Built with ☕ and Spring Boot*
+*Built with Java and Spring Boot*
+
 
 
 
