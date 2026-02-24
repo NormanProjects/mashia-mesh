@@ -62,7 +62,7 @@ MashiaMesh is a full-stack food delivery system that connects customers, restaur
 | PostgreSQL 15 | Primary relational database |
 | HikariCP | Database connection pooling |
 
-### Frontend *(coming soon)*
+### Frontend 
 | Technology | Purpose |
 |---|---|
 | React 18 | UI framework |
@@ -263,6 +263,7 @@ mashia-mesh/
 ---
 
 *Built with Java and Spring Boot*
+
 
 
 
