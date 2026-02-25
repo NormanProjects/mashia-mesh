@@ -247,10 +247,10 @@ mashia-mesh/
 | Phase 4 | Restaurant Service | ✅ Complete |
 | Phase 5 | Order Service | ✅ Complete |
 | Phase 6 | Payment Service | ✅ Complete |
-| Phase 7 | Delivery Service | ⏳ Planned |
+| Phase 7 | Delivery Service | ✅ Complete|
 | Phase 8 | Notification Service | ⏳ Planned |
 | Phase 9 | Salesforce CRM Integration | ⏳ Planned |
-| Phase 10 | React Frontend | ⏳ Planned |
+| Phase 10 | React Frontend | ✅ Complete |
 
 ---
 
@@ -263,6 +263,7 @@ mashia-mesh/
 ---
 
 *Built with Java and Spring Boot*
+
 
 
 
