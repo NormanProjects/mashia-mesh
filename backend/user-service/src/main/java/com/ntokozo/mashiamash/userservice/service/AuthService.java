@@ -17,6 +17,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private String role;
 
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -29,7 +30,9 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .phone(request.getPhone())
-                .role(User.Role.CUSTOMER) // default role
+                .role(request.getRole() != null
+                        ? User.Role.valueOf(request.getRole())
+                        : User.Role.CUSTOMER)
                 .build();
 
         User saved = userRepository.save(user);

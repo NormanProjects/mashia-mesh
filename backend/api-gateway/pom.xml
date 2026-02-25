@@ -6,12 +6,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Point to YOUR parent, not spring-boot-starter-parent -->
     <parent>
         <groupId>com.ntokozo.mashiamash</groupId>
         <artifactId>mashia-mesh-backend</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-          <!-- Goes up one folder to parent -->
     </parent>
 
     <artifactId>api-gateway</artifactId>
@@ -20,19 +18,19 @@
 
     <dependencies>
 
-        <!-- Spring Cloud Gateway (reactive) -->
+        <!-- Spring Boot WebFlux — required for reactive gateway -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Gateway -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!-- Swagger API -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-        </dependency>
-
-        <!-- Eureka Client — enables lb:// routing -->
+        <!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -57,7 +55,15 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Actuator — health checks -->
+        <!-- Swagger — WebFlux version (NOT webmvc) -->
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <!-- Actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -70,6 +76,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>
