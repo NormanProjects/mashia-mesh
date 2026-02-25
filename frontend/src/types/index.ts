@@ -2,6 +2,7 @@ export interface User {
   userId: number;
   email: string;
   role: string;
+   firstName: string;
   accessToken: string;
   refreshToken: string;
 }
@@ -45,6 +46,7 @@ export interface Order {
   status: string;
   subtotal: number;
   deliveryFee: number;
+  specialInstructions: string;
   totalAmount: number;
   items: OrderItem[];
   createdAt: string;
@@ -57,4 +59,14 @@ export interface OrderItem {
   unitPrice: number;
   quantity: number;
   subtotal: number;
+}
+
+export interface Payment {
+  id: number;
+  orderId: number;
+  customerId: number;
+  amount: number;
+  paymentMethod: string;
+  status: string;
+  transactionReference: string;
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import {
   Container, Box, TextField, Button, Typography,
-  Alert, Paper, Link
+  Alert, Paper, Link, MenuItem, Select,
+  FormControl, InputLabel
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
@@ -10,7 +11,8 @@ import logo from '../assets/MashiaMeshLogo.png';
 export default function RegisterPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', password: '', phone: ''
+    firstName: '', lastName: '', email: '',
+    password: '', phone: '', role: 'CUSTOMER'
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,13 +39,9 @@ export default function RegisterPage() {
       <Box sx={{ mt: 6 }}>
         <Paper elevation={3} sx={{ p: 4 }}>
           <Box display="flex" justifyContent="center" sx={{ mb: 2 }}>
-  <Box
-    component="img"
-    src={logo}
-    alt="MashiaMesh"
-    sx={{ height: 100 }}
-  />
-</Box>
+            <Box component="img" src={logo} alt="MashiaMesh" sx={{ height: 100 }} />
+          </Box>
+
           <Typography variant="h6" textAlign="center" gutterBottom color="text.secondary">
             Create your account
           </Typography>
@@ -60,6 +58,18 @@ export default function RegisterPage() {
             margin="normal" value={form.phone} onChange={handleChange} />
           <TextField fullWidth label="Password" name="password" type="password"
             margin="normal" value={form.password} onChange={handleChange} />
+
+          <FormControl fullWidth margin="normal">
+            <InputLabel>I am a...</InputLabel>
+            <Select
+              value={form.role}
+              label="I am a..."
+              onChange={e => setForm({ ...form, role: e.target.value })}
+            >
+              <MenuItem value="CUSTOMER">Customer</MenuItem>
+              <MenuItem value="RESTAURANT_OWNER">Restaurant Owner</MenuItem>
+            </Select>
+          </FormControl>
 
           <Button
             fullWidth variant="contained" size="large"
