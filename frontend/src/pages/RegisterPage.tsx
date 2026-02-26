@@ -68,6 +68,7 @@ export default function RegisterPage() {
             >
               <MenuItem value="CUSTOMER">Customer</MenuItem>
               <MenuItem value="RESTAURANT_OWNER">Restaurant Owner</MenuItem>
+              <MenuItem value="DELIVERY_DRIVER">Delivery Driver</MenuItem>
             </Select>
           </FormControl>
 

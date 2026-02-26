@@ -70,3 +70,18 @@ export interface Payment {
   status: string;
   transactionReference: string;
 }
+
+export interface Delivery {
+  id: number;
+  orderId: number;
+  driverId: number;
+  driverName: string;
+  driverPhone: string;
+  deliveryAddress: string;
+  status: string;
+  currentLocation: string;
+  pickedUpAt: string;
+  deliveredAt: string;
+  notes: string;
+  createdAt: string;
+}

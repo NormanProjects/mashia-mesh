@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Button, Badge, Box } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../store/store';
@@ -21,6 +22,7 @@ export default function Navbar() {
   };
 
   const isOwner = user?.role === 'RESTAURANT_OWNER';
+  const isDriver = user?.role === 'DELIVERY_DRIVER';
 
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1a1a1a', px: 2 }}>
@@ -37,7 +39,7 @@ export default function Navbar() {
         {isAuthenticated ? (
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
 
-            {isOwner ? (
+            {isOwner && (
               <Button
                 color="inherit"
                 startIcon={<DashboardIcon />}
@@ -46,7 +48,20 @@ export default function Navbar() {
               >
                 Owner Dashboard
               </Button>
-            ) : (
+            )}
+
+            {isDriver && (
+              <Button
+                color="inherit"
+                startIcon={<TwoWheelerIcon />}
+                onClick={() => navigate('/driver')}
+                sx={{ color: '#4FC3F7' }}
+              >
+                My Deliveries
+              </Button>
+            )}
+
+            {!isOwner && !isDriver && (
               <>
                 <Button color="inherit" onClick={() => navigate('/orders')}
                   sx={{ color: 'white' }}>

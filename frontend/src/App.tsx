@@ -10,6 +10,7 @@ import RestaurantMenuPage from './pages/RestaurantMenuPage';
 import OrdersPage from './pages/OrdersPage';
 import DashboardPage from './pages/DashboardPage';
 import OwnerDashboard from './pages/owner/OwnerDashboard';
+import DriverDashboard from './pages/driver/DriverDashboard';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/checkout" element={<DashboardPage />} />
           <Route path="/owner" element={<OwnerDashboard />} />
+           <Route path="/driver" element={<DriverDashboard />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
