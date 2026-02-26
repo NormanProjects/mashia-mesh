@@ -37,6 +37,11 @@ spring:
           predicates:
             - Path=/api/v1/deliveries/**
 
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/v1/notifications/**
+
 
 eureka:
   client:
