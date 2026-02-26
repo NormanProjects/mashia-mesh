@@ -42,6 +42,7 @@ public class AuthService {
                 .refreshToken(jwtService.generateRefreshToken(saved))
                 .email(saved.getEmail())
                 .role(saved.getRole().name())
+                .firstName(saved.getFirstName())
                 .userId(saved.getId())
                 .build();
     }
@@ -59,6 +60,7 @@ public class AuthService {
                 .refreshToken(jwtService.generateRefreshToken(user))
                 .email(user.getEmail())
                 .role(user.getRole().name())
+                .firstName(user.getFirstName())
                 .userId(user.getId())
                 .build();
     }
